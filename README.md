@@ -1,6 +1,6 @@
 # 🏥 AI-Powered Healthcare Debt Collection Chatbot
 
-An AI-powered healthcare collections assistant built using **Streamlit** and the **Groq API (Llama 3.1 8B Instant)**. The chatbot authenticates patients, discusses outstanding medical balances, negotiates payment plans using deterministic business rules, and generates a structured session summary at the end of each conversation.
+An AI-powered healthcare collections assistant built using **Streamlit** and the **Groq **. The chatbot authenticates patients, discusses outstanding medical balances, describes payment plans using deterministic business rules, and generates a structured session summary at the end of each conversation.
 
 ---
 
@@ -9,13 +9,12 @@ An AI-powered healthcare collections assistant built using **Streamlit** and the
 - 🔐 Patient authentication using Full Name and Date of Birth
 - 🎯 Configurable patient information from the Streamlit sidebar
 - 💳 Configurable outstanding balance
-- 🤖 AI-powered conversational experience using Groq Llama 3.1
+- 🤖 AI-powered conversational experience using Groq 
 - 📋 Rule-based payment plan calculation
 - 📄 Structured JSON session report
-- 📊 Interactive session summary dashboard
 - 🔄 Retry limits to prevent infinite conversation loops
-- 📌 Automatic session reference number generation
-- 🟢 Session status tracking (Active / Accepted / Declined / Authentication Failed)
+- 📌 Automatic session reference number generation 
+- 🟢 Session status tracking (Active / Accepted / Declined / Authentication Failed) 
 
 ---
 
@@ -24,7 +23,6 @@ An AI-powered healthcare collections assistant built using **Streamlit** and the
 - Python 3.10+
 - Streamlit
 - Groq API
-- Llama-3.1-8B-Instant
 - Python-dotenv
 
 ---
@@ -40,7 +38,7 @@ The chatbot verifies the patient's identity by requesting:
 - Full Name
 - Date of Birth (DD/MM/YYYY)
 
-Authentication is limited to **three attempts** for security.
+Authentication is limited to **three attempts** in total .
 
 ---
 
@@ -109,11 +107,11 @@ Healthcare-Debt-Collection-Chatbot/
 ├── requirements.txt
 ├── README.md
 ├── screenshots/
-│   ├── dashboard.png
-│   ├── chat1.png
-│   ├── chat2.png
-│   └── chat3.png
-└── .env
+    ├── dashboard.png
+    ├── chat1.png
+    ├── chat2.png
+    └── chat3.png
+
 ```
 
 ---
@@ -123,7 +121,7 @@ Healthcare-Debt-Collection-Chatbot/
 Clone the repository
 
 ```bash
-git clone https://github.com/YourGitHubUsername/healthcare-debt-collection-chatbot.git
+git clone https://github.com/OjasNcodes/healthcare-debt-collection-chatbot.git
 ```
 
 Navigate to the project directory
@@ -133,6 +131,18 @@ cd healthcare-debt-collection-chatbot
 ```
 
 Install the required packages
+It is recommended to use a Python virtual environment before installing the project dependencies.
+
+Windows
+python -m venv venv
+venv\Scripts\activate
+
+macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+After activating the virtual environment, install the required packages:
+
 
 ```bash
 pip install -r requirements.txt
@@ -152,17 +162,12 @@ https://console.groq.com
 
 ### Step 2
 
-Generate a free API key.
+Generate a free API key .
 
 ### Step 3
 
-Create a `.env` file in the project root directory.
+copy the API key for next step .
 
-Example:
-
-```env
-GROQ_API_KEY=your_api_key_here
-```
 
 ---
 
@@ -174,7 +179,11 @@ Run the Streamlit application:
 streamlit run app.py
 ```
 
-The application will automatically open in your default browser.
+The application will automatically open in the default browser.
+
+Copy the API key and paste it into the Groq API Key input field on the Streamlit interface .
+
+Preferaby use on dark mode option available on top right corner for better text readability. 
 
 ---
 
@@ -234,9 +243,6 @@ Instead:
 Patient Authentication
           │
           ▼
-Identity Verification
-          │
-          ▼
 Outstanding Balance Discussion
           │
           ▼
@@ -254,88 +260,6 @@ Session Summary
 
 ---
 
-# Sample Test Conversations
-
-## Scenario 1 – Authentication Success
-
-```
-Bot:
-May I have your full name?
-
-User:
-John Smith
-
-Bot:
-Please provide your date of birth.
-
-User:
-01/15/1985
-
-Bot:
-Identity verified successfully.
-```
-
----
-
-## Scenario 2 – Payment Plan Accepted
-
-```
-User:
-I can pay 80
-
-Bot:
-Today's payment: $80
-
-Remaining balance: $770
-
-12 monthly installments of $64.17
-
-User:
-Yes
-
-Bot:
-Payment arrangement confirmed.
-```
-
----
-
-## Scenario 3 – Payment Rejected
-
-```
-User:
-I can pay 30
-
-Bot:
-The minimum payment accepted today is $50.
-
-User:
-No
-
-Bot:
-The session has been closed.
-```
-
----
-
-## Scenario 4 – Authentication Failure
-
-```
-User:
-Incorrect Name
-
-User:
-Incorrect Name
-
-User:
-Incorrect Name
-
-Bot:
-Authentication failed.
-
-Session closed.
-```
-
----
 
 # Application Screenshots
 
@@ -398,16 +322,6 @@ This separation guarantees that payment calculations remain deterministic while 
 
 ---
 
-# Future Improvements
-
-- Secure payment gateway integration
-- Database-backed patient records
-- Multi-language support
-- Voice-based conversations
-- SMS and email notifications
-- Integration with Electronic Health Record (EHR) systems
-
----
 
 # License
 
