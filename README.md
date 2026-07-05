@@ -207,24 +207,6 @@ This makes it easy to simulate different healthcare collection scenarios without
 
 # Payment Logic
 
-The payment rules are enforced using deterministic Python logic.
-
-
-                    Payment Received
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-      < $50          $50 – $99.99         ≥ $100
-        │                  │                  │
-   ❌ Rejected      ✅ Accepted         ✅ Accepted
-                           │                  │
-                  12 Monthly Payments  9 Monthly Payments
-
-If the payment equals the full outstanding balance:
-                 ✅ Account Settledi.e. No balance remains 
-
-
-
 The LLM **never calculates payment plans**.
 
 Instead :
@@ -319,7 +301,3 @@ This separation guarantees that payment calculations remain deterministic while 
 
 ---
 
-
-# License
-
-This project was developed for educational purposes as part of an AI application assignment.
