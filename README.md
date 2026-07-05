@@ -134,12 +134,17 @@ Install the required packages
 It is recommended to use a Python virtual environment before installing the project dependencies.
 
 Windows
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
 macOS/Linux
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
+
 
 After activating the virtual environment, install the required packages:
 
@@ -204,33 +209,25 @@ This makes it easy to simulate different healthcare collection scenarios without
 
 The payment rules are enforced using deterministic Python logic.
 
-```text
-Today's Payment
 
-< $50
-    ↓
-Rejected
+                    Payment Received
+                           │
+        ┌──────────────────┼──────────────────┐
+        │                  │                  │
+      < $50          $50 – $99.99         ≥ $100
+        │                  │                  │
+   ❌ Rejected      ✅ Accepted         ✅ Accepted
+                           │                  │
+                  12 Monthly Payments  9 Monthly Payments
 
-$50 – $99.99
-    ↓
-Accepted
-+
-12 Monthly Installments
+If the payment equals the full outstanding balance:
+                 ✅ Account Settledi.e. No balance remains 
 
-≥ $100
-    ↓
-Accepted
-+
-9 Monthly Installments
 
-Full Balance
-    ↓
-Account Settled
-```
 
 The LLM **never calculates payment plans**.
 
-Instead:
+Instead :
 
 - Python determines the payment plan.
 - The LLM communicates the result naturally.
